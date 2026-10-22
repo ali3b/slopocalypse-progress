@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-22 22:31 (Hanoi)*
+*Last updated: 2026-10-22 22:48 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -16,7 +16,7 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 | M0 Bootstrap | ✅ Done | Contracts repo, platform skeleton, CI and guards, host preparation |
 | M1 Walking skeleton + tech spikes | 🚧 In progress | Gateway, policy, intake, catalog, orchestrator ✅; Blender spike S2 ✅; renderer spike S1 ✅ (golden parity pending) |
 | **M2 Vertical slice** | ✅ Acceptance test passing | Rig → animation → sprites ✅; Godot + SlopEngine packages with real import tests ✅; publication + delivery ✅; license-free end-to-end test ✅ |
-| **M3 Breadth, web targets, migration, Unity** | ⏳ Next | Props and vehicles, tilesets, Phaser + web glTF + legacy-ssg targets, game migration |
+| **M3 Breadth, web targets, migration, Unity** | 🚧 In progress | Phaser ✅, web glTF ✅, legacy-ssg (3D) ✅, vehicles with wheels ✅; tilesets, texture accuracy and migration importers next; Unity needs a licence |
 | M4 Unreal and public channels | ⏳ | |
 | M5 SlopEngine MVP | ⏳ | |
 | M6 SlopStudio MVP | ⏳ | |
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **22:48.** M3 targets for the existing games: Phaser 3.80.1 (headless import test checks pivot and frame sizes), web glTF and legacy formats (three.js 0.186.1 import test). A real Synty rally car comes out with all 4 wheels classified, at axle height.
 
 - **22:31.** Vertical-slice acceptance test (VS-1) passes in full: vendor pack update with rollback, incompatible-rig and licence refusals, second-resolution cache reuse. 21 s, no licensed content. Moving to M3.
 
