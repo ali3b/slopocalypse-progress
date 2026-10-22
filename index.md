@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-22 23:05 (Hanoi)*
+*Last updated: 2026-10-22 22:58 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -16,7 +16,7 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 | M0 Bootstrap | ✅ Done | Contracts repo, platform skeleton, CI and guards, host preparation |
 | M1 Walking skeleton + tech spikes | 🚧 In progress | Gateway, policy, intake, catalog, orchestrator ✅; Blender spike S2 ✅; renderer spike S1 ✅ (golden parity pending) |
 | **M2 Vertical slice** | ✅ Acceptance test passing | Rig → animation → sprites ✅; Godot + SlopEngine packages with real import tests ✅; publication + delivery ✅; license-free end-to-end test ✅ |
-| **M3 Breadth, web targets, migration, Unity** | 🚧 In progress | Phaser ✅, web glTF ✅, legacy-ssg (3D) ✅, vehicles with wheels ✅, tilesets (iso + square, Tiled export) ✅, exact textures ✅, pixel-art look ✅; migration importers next; Unity needs a licence |
+| **M3 Breadth, web targets, migration, Unity** | 🚧 In progress | Phaser ✅, web glTF ✅, legacy-ssg (3D) ✅, vehicles with wheels ✅, tilesets (iso + square, Tiled export) ✅, exact textures ✅, pixel-art look ✅; Off Road migrated: its own load check passes on platform assets ✅; Unity needs a licence |
 | M4 Unreal and public channels | ⏳ | |
 | M5 SlopEngine MVP | ⏳ | |
 | M6 SlopStudio MVP | ⏳ | |
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **22:58.** **First real game on the new platform.** Off Road's asset declaration was imported, 48 of 49 models rebuilt and delivered into a copy of the game, and the game's own load check passes: the truck sits on 4 wheels, ground error 1 mm. Two intake bugs were found and fixed along the way.
 
 - **23:05.** Tilesets: seamless corner-transition tiles (iso diamond and square), exported to Tiled and checked in Phaser. Pixel-art sprite look added. Real Synty textures now bind exactly by name. 4 end-to-end suites green.
 
