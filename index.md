@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-22 22:03 (Hanoi)*
+*Last updated: 2026-10-22 22:16 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -14,8 +14,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 |---|---|---|
 | Architecture (sessions 1–8) | ✅ Done | 24 decision records, full requirements traceability, design reviews |
 | M0 Bootstrap | ✅ Done | Contracts repo, platform skeleton, CI and guards, host preparation |
-| **M1 Walking skeleton + tech spikes** | 🚧 In progress | Gateway, policy, intake, catalog, orchestrator ✅; Blender spike S2 ✅; renderer spike S1 ✅ (golden parity pending) |
-| M2 Vertical slice | ⏳ | First character through rig, animation and sprites to Godot and SlopEngine |
+| M1 Walking skeleton + tech spikes | 🚧 In progress | Gateway, policy, intake, catalog, orchestrator ✅; Blender spike S2 ✅; renderer spike S1 ✅ (golden parity pending) |
+| **M2 Vertical slice** | 🚧 In progress | Rig → animation → sprites ✅ with human review; Godot + SlopEngine packaging next |
 | M3 Breadth, web targets, migration, Unity | ⏳ | |
 | M4 Unreal and public channels | ⏳ | |
 | M5 SlopEngine MVP | ⏳ | |
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **22:16.** Vertical-slice flow runs through the API: 2 packs → soldier + walk/idle retargeted → 8-direction sprite set; reviewer approval cascades. 14 s end to end.
 
 - **22:03.** First real sprites: a Synty soldier walking in 8 iso directions, rendered by the new sandboxed pipeline. Retargeting maps 22/22 bones.
 
