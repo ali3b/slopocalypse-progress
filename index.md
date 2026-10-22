@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 02:43 (Hanoi)*
+*Last updated: 2026-10-23 02:58 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -16,7 +16,7 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 | M0 Bootstrap | ✅ Done | Contracts repo, platform skeleton, CI and guards, host preparation |
 | M1 Walking skeleton + tech spikes | 🚧 In progress | Gateway, policy, intake, catalog, orchestrator ✅; Blender spike S2 ✅; renderer spike S1 ✅ (golden parity pending) |
 | **M2 Vertical slice** | ✅ Acceptance test passing | Rig → animation → sprites ✅; Godot + SlopEngine packages with real import tests ✅; publication + delivery ✅; license-free end-to-end test ✅ |
-| **M3 Breadth, web targets, migration, Unity** | 🚧 In progress | Phaser ✅, web glTF ✅, legacy-ssg (3D) ✅, vehicles with wheels ✅, tilesets (iso + square, Tiled export) ✅, exact textures ✅, pixel-art look ✅, prop sprites with animation templates ✅, colour tilesets ✅; Off Road migrated: its own load check passes on platform assets ✅; Monty 17/17 and **plays in a copy of the game** ✅; Airborne Ranger 65/65 sprites ✅; Sidefighter 28/29 and **fights in a copy of the game** ✅; meshopt ✅; Unity needs a licence |
+| **M3 Breadth, web targets, migration, Unity** | 🚧 In progress | Phaser ✅, web glTF ✅, legacy-ssg (3D) ✅, vehicles with wheels ✅, tilesets (iso + square, Tiled export) ✅, exact textures ✅, pixel-art look ✅, prop sprites with animation templates ✅, colour tilesets ✅; Off Road migrated: its own load check passes on platform assets ✅; Monty 17/17 and **plays in a copy of the game** ✅; Airborne Ranger 65/65 sprites ✅; Sidefighter 28/29, **the game's own load check passes** ✅; meshopt ✅; Unity needs a licence |
 | M4 Unreal and public channels | ⏳ | |
 | M5 SlopEngine MVP | ⏳ | |
 | M6 SlopStudio MVP | ⏳ | |
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **02:58.** **Sidefighter passes its own load check on platform assets.** Sweeps knock down, jump kicks land, and dashes go both ways. Rounds and the match play out.
 
 - **02:43.** **Sidefighter fights on platform assets.** In the game's own check, jabs land, blocks work, combos chain, fireballs fly and clash, and full rounds and the match play out. The new sprites carry the hit timing, the striking limb and per-frame hand, foot and head positions. The fighters' hair now sits on their heads, and Airborne Ranger props get destroyed states. Three moves still failed the check (sweep, jump kick, forward dash): they were cut from longer takes and need trimming. That is fixed and being re-checked now.
 
