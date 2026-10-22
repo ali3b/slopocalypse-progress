@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 04:13 (Hanoi)*
+*Last updated: 2026-10-23 04:38 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **04:38.** **Off Road is complete: all 49 of its models** rebuild, pass their checks and load in the game. That includes the stadium crowds (7 baked poses each), the animated drivers and the painted trucks.
 
 - **04:13.** Off Road's drivers and fans now come with their animations (celebrations, cheering and idles), and its load check still passes. Cars in Off Road and 4dstunts get their paint colours (8 per car in 4dstunts), done the simpler way: the whole car is tinted, not just the paint. 4dstunts: all 47 cars and props whose packs are on this machine now build and pass their checks.
 
