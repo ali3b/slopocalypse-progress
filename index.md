@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-22 23:14 (Hanoi)*
+*Last updated: 2026-10-22 23:24 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **23:24.** The Off Road truck now matches the old generator exactly on the details the game uses: lift-kit wheels, the same wheel node names, radius 0.5499 m, length 4.5 m. Simplify, fit and attach are supported. A batch recipe now isolates per-asset failures.
 
 - **23:14.** Comparing Off Road with its original screenshot caught a serious texture bug: GLBs shipped without images. It is fixed and covered by a regression test. Rocks, cliffs and stands now look like the original game.
 
