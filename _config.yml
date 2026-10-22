@@ -1,0 +1,8 @@
+title: Slopocalypse
+description: Architecture, decisions and build progress
+theme: jekyll-theme-cayman
+markdown: kramdown
+kramdown:
+  input: GFM
+exclude:
+  - agent-instructions/
