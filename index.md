@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 05:46 (Hanoi)*
+*Last updated: 2026-10-23 06:04 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -16,7 +16,7 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 | M0 Bootstrap | ✅ Done | Contracts repo, platform skeleton, CI and guards, host preparation |
 | M1 Walking skeleton + tech spikes | 🚧 In progress | Gateway, policy, intake, catalog, orchestrator ✅; Blender spike S2 ✅; renderer spike S1 ✅ (golden parity pending) |
 | **M2 Vertical slice** | ✅ Acceptance test passing | Rig → animation → sprites ✅; Godot + SlopEngine packages with real import tests ✅; publication + delivery ✅; license-free end-to-end test ✅ |
-| **M3 Breadth, web targets, migration, Unity** | 🚧 Mostly done | **All five existing games pass their own load checks on platform-built assets** (Off Road 49/49, Monty 17/17, Sidefighter 28/29, Airborne Ranger 65/65 sprites, 4dstunts 47 pack models). Supporting work: one-command migration (`migrate-game`); Phaser, web glTF and both legacy formats; tilesets; animated props; effects; destroyed states; fighting-game hit data; character clips and crowd poses; paint variants; texture budgets; levels of detail. **Open:** Airborne Ranger maps, 4dstunts procedural track pieces, and Unity (needs a licence) |
+| **M3 Breadth, web targets, migration, Unity** | 🚧 Mostly done | **All five existing games pass their own load checks on platform-built assets** (Off Road 49/49, Monty 17/17, Sidefighter 29 sprites, Airborne Ranger 65/65 sprites, 4dstunts 47 pack models). Supporting work: one-command migration (`migrate-game`); Phaser, web glTF and both legacy formats; tilesets; animated props; effects; destroyed states; fighting-game hit data; character clips and crowd poses; paint variants; texture budgets; levels of detail. **Open:** Airborne Ranger maps, 4dstunts procedural track pieces, and Unity (needs a licence) |
 | M4 Unreal and public channels | ⏳ | |
 | M5 SlopEngine MVP | ⏳ | |
 | M6 SlopStudio MVP | ⏳ | |
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **06:04.** Sidefighter's last broken effect (a spinning ring) is fixed: side-view games now draw props face-on, as Monty already did. Sidefighter has every sprite except the boss, whose pack isn't on this machine, and its load check still passes.
 
 - **05:46.** **Overnight wrap-up: every game was re-checked on the final code, and all pass their own load checks** (Off Road, 4dstunts, Monty, Sidefighter, Airborne Ranger). Monty's skeleton has its hit and death animations back. One command (`migrate-game`) now rebuilds any of the five games from your packs. Still open:
   - Airborne Ranger's maps
