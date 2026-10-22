@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 06:20 (Hanoi)*
+*Last updated: 2026-10-23 06:44 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **06:44.** Airborne Ranger's hostage now sits, using a seated clip from your Mixamo library, and its animation list matches the old export exactly. Final re-check: 74 of 74 packages pass and the game's own load check passes. End of the overnight run.
 
 - **06:20.** Airborne Ranger's officer and hostage now build: their moveset maps onto Synty's basic idle, walk and run animations, as the old generator did. 74 of 74 packages pass their checks, and the game's own load check passes. The only one left is the prisoner, whose model isn't in the packs on this machine.
 
