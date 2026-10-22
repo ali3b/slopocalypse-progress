@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-22 21:50 (Hanoi)*
+*Last updated: 2026-10-22 22:20 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -25,10 +25,14 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 
 - [x] Node.js 24 LTS on the build host
 - [x] Architecture repository pushed (private)
-- [ ] Contracts repository: schemas, operations manifest, fixtures, validators, compatibility gate, generators
-- [ ] Platform repository: module skeleton, dependency-rule check, asset guard, CI
-- [ ] Host: PostgreSQL container, worker container images
+- [x] Contracts repository v0.1.0: 15 schemas, 43 operations, 56 fixtures, compatibility gate, MCP/OpenAPI/CLI generators (7/7 tests)
+- [x] Platform repository: module skeleton, dependency-rule check, asset guard, CI
+- [x] Kernel, PostgreSQL + in-memory store, content-addressed artifact store, catalog, provenance, licence policy (10/10 tests)
+- [x] Host: PostgreSQL 17 container
+- [ ] Host: worker container images (Blender, renderer)
 
 ## Build log
+
+- **22:20.** Contracts v0.1.0 tagged. Platform core modules done; PostgreSQL store passes concurrency contract tests.
 
 - **2026-10-22 21:50.** Architecture complete. M0 started. Progress page created.
