@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 03:17 (Hanoi)*
+*Last updated: 2026-10-23 03:53 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -16,7 +16,7 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 | M0 Bootstrap | ✅ Done | Contracts repo, platform skeleton, CI and guards, host preparation |
 | M1 Walking skeleton + tech spikes | 🚧 In progress | Gateway, policy, intake, catalog, orchestrator ✅; Blender spike S2 ✅; renderer spike S1 ✅ (golden parity pending) |
 | **M2 Vertical slice** | ✅ Acceptance test passing | Rig → animation → sprites ✅; Godot + SlopEngine packages with real import tests ✅; publication + delivery ✅; license-free end-to-end test ✅ |
-| **M3 Breadth, web targets, migration, Unity** | 🚧 In progress | Phaser ✅, web glTF ✅, legacy-ssg (3D) ✅, vehicles with wheels ✅, tilesets (iso + square, Tiled export) ✅, exact textures ✅, pixel-art look ✅, prop sprites with animation templates ✅, colour tilesets ✅; Off Road migrated: its own load check passes on platform assets ✅; Monty 17/17 and **plays in a copy of the game** ✅; Airborne Ranger 65/65 sprites, **its own load check passes** ✅; Sidefighter 28/29, **the game's own load check passes** ✅; meshopt ✅; Unity needs a licence |
+| **M3 Breadth, web targets, migration, Unity** | 🚧 In progress | Phaser ✅, web glTF ✅, legacy-ssg (3D) ✅, vehicles with wheels ✅, tilesets (iso + square, Tiled export) ✅, exact textures ✅, pixel-art look ✅, prop sprites with animation templates ✅, colour tilesets ✅; Off Road migrated: its own load check passes on platform assets ✅; Monty 17/17, **its own full load check passes** ✅; Airborne Ranger 65/65 sprites, **its own load check passes** ✅; Sidefighter 28/29, **the game's own load check passes** ✅; meshopt ✅; Unity needs a licence |
 | M4 Unreal and public channels | ⏳ | |
 | M5 SlopEngine MVP | ⏳ | |
 | M6 SlopStudio MVP | ⏳ | |
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **03:53.** **All three 2D games now pass their own load checks on platform assets:** Monty (every scene: rooms, keys, ladders, bonus, deaths, game over), Sidefighter (full matches) and Airborne Ranger. Monty needed one fix to its test script, made only in a scratch copy: the script copied the whole game scene out of the browser on each check. Airborne Ranger's 4 tilesets also build now, with the declared terrain pairs and pack textures.
 
 - **03:17.** **Airborne Ranger passes its own load check on platform sprites** (it still uses the old maps). Destroyed states and effect animations (bursts, smoke, flames) were added. **One command now migrates a game**: `scripts/migrate-game.ts`. It takes in the packs, builds everything with import tests, stops for your review (or `--approve-all`), then publishes and delivers in the layout the game already loads. It has been tested on Monty (2D) and Off Road (3D).
 
