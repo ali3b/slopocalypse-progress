@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 04:38 (Hanoi)*
+*Last updated: 2026-10-23 05:15 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **05:15.** **All five games now pass their own load checks on platform-built assets.** 4dstunts races with platform cars. Paint colours now recolour just the car's paint (liveries, white bases) rather than the whole car. Texture budgets work: Off Road's models went from 46 MB to 5.7 MB, and the 4dstunts cars match the old file sizes (about 600 KB). Scenery has levels of detail.
 
 - **04:38.** **Off Road is complete: all 49 of its models** rebuild, pass their checks and load in the game. That includes the stadium crowds (7 baked poses each), the animated drivers and the painted trucks.
 
