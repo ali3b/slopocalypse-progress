@@ -15,7 +15,7 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 | Architecture (sessions 1–8) | ✅ Done | 24 decision records, full requirements traceability, design reviews |
 | M0 Bootstrap | ✅ Done | Contracts repo, platform skeleton, CI and guards, host preparation |
 | M1 Walking skeleton + tech spikes | 🚧 In progress | Gateway, policy, intake, catalog, orchestrator ✅; Blender spike S2 ✅; renderer spike S1 ✅ (golden parity pending) |
-| **M2 Vertical slice** | 🚧 In progress | Rig → animation → sprites ✅ with human review; Godot + SlopEngine packaging next |
+| **M2 Vertical slice** | 🚧 In progress | Rig → animation → sprites ✅; Godot + SlopEngine packages with real import tests ✅; publication + delivery next |
 | M3 Breadth, web targets, migration, Unity | ⏳ | |
 | M4 Unreal and public channels | ⏳ | |
 | M5 SlopEngine MVP | ⏳ | |
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **22:16.** The vertical slice reaches the engines. Godot 4.7.2 imports the soldier headless (41-bone skeleton, 16 sprite animations), and the SlopEngine loader verifies all 8 directions. Two target integration repos were created.
 
 - **22:16.** Vertical-slice flow runs through the API: 2 packs → soldier + walk/idle retargeted → 8-direction sprite set; reviewer approval cascades. 14 s end to end.
 
