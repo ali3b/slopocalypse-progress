@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 05:15 (Hanoi)*
+*Last updated: 2026-10-23 05:46 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -42,6 +42,12 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **05:46.** **Overnight wrap-up: every game was re-checked on the final code, and all pass their own load checks** (Off Road, 4dstunts, Monty, Sidefighter, Airborne Ranger). Monty's skeleton has its hit and death animations back. One command (`migrate-game`) now rebuilds any of the five games from your packs. Still open:
+  - Airborne Ranger's maps
+  - 4dstunts' procedural track pieces
+  - assets in packs that aren't on this machine (the Sidefighter boss, some 4dstunts scenery and drivers)
+  - Unity, which needs a licence
 
 - **05:15.** **All five games now pass their own load checks on platform-built assets.** 4dstunts races with platform cars. Paint colours now recolour just the car's paint (liveries, white bases) rather than the whole car. Texture budgets work: Off Road's models went from 46 MB to 5.7 MB, and the 4dstunts cars match the old file sizes (about 600 KB). Scenery has levels of detail.
 
