@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 00:35 (Hanoi)*
+*Last updated: 2026-10-23 01:33 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -16,7 +16,7 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 | M0 Bootstrap | ✅ Done | Contracts repo, platform skeleton, CI and guards, host preparation |
 | M1 Walking skeleton + tech spikes | 🚧 In progress | Gateway, policy, intake, catalog, orchestrator ✅; Blender spike S2 ✅; renderer spike S1 ✅ (golden parity pending) |
 | **M2 Vertical slice** | ✅ Acceptance test passing | Rig → animation → sprites ✅; Godot + SlopEngine packages with real import tests ✅; publication + delivery ✅; license-free end-to-end test ✅ |
-| **M3 Breadth, web targets, migration, Unity** | 🚧 In progress | Phaser ✅, web glTF ✅, legacy-ssg (3D) ✅, vehicles with wheels ✅, tilesets (iso + square, Tiled export) ✅, exact textures ✅, pixel-art look ✅, prop sprites with animation templates ✅, colour tilesets ✅; Off Road migrated: its own load check passes on platform assets ✅; Monty migrated 17/17 ✅; Airborne Ranger 64 of 65 sprites ✅; meshopt ✅; Unity needs a licence |
+| **M3 Breadth, web targets, migration, Unity** | 🚧 In progress | Phaser ✅, web glTF ✅, legacy-ssg (3D) ✅, vehicles with wheels ✅, tilesets (iso + square, Tiled export) ✅, exact textures ✅, pixel-art look ✅, prop sprites with animation templates ✅, colour tilesets ✅; Off Road migrated: its own load check passes on platform assets ✅; Monty 17/17 and **plays in a copy of the game** ✅; Airborne Ranger 65/65 sprites ✅; Sidefighter 28/29 ✅; meshopt ✅; Unity needs a licence |
 | M4 Unreal and public channels | ⏳ | |
 | M5 SlopEngine MVP | ⏳ | |
 | M6 SlopStudio MVP | ⏳ | |
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **01:33.** **Monty runs on the new platform's assets.** A copy of the game was loaded with sprites delivered in the old layout it expects. Joe idles and walks (using your Mixamo moves), the rooms draw with the new tileset, and the props sit at the right size. Sidefighter rebuilt 28 of its 29 sprites, with every fighter's full moveset. Airborne Ranger's sprites are complete (65/65) after one more size fix. One limit: on this machine, the game's own full test is too slow under software graphics (about a minute per room change, also with the old assets), so it isn't run to the end yet.
 
 - **00:35.** **Third game: Airborne Ranger.** 64 of its 65 sprites rebuilt at true world scale on the iso grid, and all Phaser checks pass. **Monty is now complete (17/17).** Joe was built from your Mixamo martial-arts clips, which the platform can now take in as an animation library. Bugs fixed along the way:
   - Some Synty files came in 100 times too small.
