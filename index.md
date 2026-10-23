@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 17:15 (Hanoi)*
+*Last updated: 2026-10-23 17:45 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -36,7 +36,7 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [ ] Clip trimming, labels and timing suffixes (Sidefighter)
 - [x] 4dstunts procedural geometry: 28 track pieces, 16 terrains, 5 skydomes, 1 composite
 - [ ] 4dstunts: posed drivers (combined character file), decal-free paint (one car)
-- [ ] Off Road: truck lift kit (attach), fit
+- [x] Off Road: lift kit, fit, glass, alpha, animated characters, crowd poses, paint
 - [ ] Final sweep: every game's import report fully mapped and its own checks passing, then retire ssg
 
 ## M0 checklist
@@ -60,6 +60,15 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **17:45.** **Off Road is now faithful to the old build, and the comparison showed the earlier "pass" was not.** Compared against the old exports, the earlier platform build had:
+  - no animated characters: every driver, fan and flagman clip was a 0.03 s two-key take;
+  - crowd poses that were the bind pose at 100× scale;
+  - opaque truck windows, see-through grandstand seats, the wrong texture on the lift kit and an olive podium.
+
+  The load check passed anyway, because it doesn't look at these. All of it is fixed by porting the old generator's own code (clip merging, pose baking, glass, cut-out alpha, texture matching, attachments, size fitting, paint recolouring). Now 44 of 49 models match the old exports within 1 cm; the other 5 differ only in fields the game doesn't read. The load check passes on an all-platform copy (test, race, title, podium, shop).
+
+  **Also merged: the old sprite renderer, ported as a second render mode.** On sprites it was tested on, it reproduces the old files exactly and the pixels to within ±1 colour level. Airborne Ranger is migrating through it now, with all 75 sprite entries fully mapped.
 
 - **17:15.** **4dstunts re-checked on the merged code: 119 of 119 models built by the platform, nothing from the old generator.** Every check the game has passes: garage, race and props, all 11 tracks, smoothness, and piece fit, whose output is identical to the old build's. Left for 4dstunts are the 6 posed drivers (they come from a combined character file) and one car's decal-free paint. The sprite-format additions the renderer port needed are released (contracts 0.12: clip names, extra sheets for split characters, additive blending, named body boxes).
 
