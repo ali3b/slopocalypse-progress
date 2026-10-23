@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 16:20 (Hanoi)*
+*Last updated: 2026-10-23 16:40 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -34,7 +34,8 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [ ] Destroyed states that swap to a separate wreck model; destroy-transition timing
 - [ ] Sprite options: uniform, split, shadow, effects layer, mirror, still, portrait, low three-quarter view, scale, clip length
 - [ ] Clip trimming, labels and timing suffixes (Sidefighter)
-- [ ] 4dstunts procedural geometry: 28 track pieces, 16 terrains, 5 skydomes, 1 composite; poses; decals
+- [x] 4dstunts procedural geometry: 28 track pieces, 16 terrains, 5 skydomes, 1 composite
+- [ ] 4dstunts: posed drivers (combined character file), decal-free paint (one car)
 - [ ] Off Road: truck lift kit (attach), fit
 - [ ] Final sweep: every game's import report fully mapped and its own checks passing, then retire ssg
 
@@ -59,6 +60,16 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **16:40.** **4dstunts' procedural models now build on the platform: all 50 of them.** That's the 28 track pieces, 16 terrains, 5 skydomes and the gas-station composite. The old generator's geometry code was ported as is.
+  - **Track pieces:** identical to the old ones in every vertex count, collider, bound and connection socket. Piece-fit gives exactly the old gaps.
+  - **Terrains:** ground, water and colliders are identical, and the scattered props match in count.
+  - **Skydomes:** two are identical; the rest differ by about 0.1 % of their triangles, because their ring props are platform-built meshes.
+  - **Game checks:** on a 4dstunts copy built entirely by the platform (119/119 models), every check passes: garage, race, props, all 11 tracks, piece fit and smoothness.
+  - **Packs:** two more were copied in from Downloads (Town, Swamp Marshland).
+  - **Still open for 4dstunts:** posed drivers (they come from a combined character file) and one car's decal-free paint.
+
+  The work is merged; a re-check on the merged code is running.
 
 - **16:20.** **New approach for the last sprite gaps: render each sprite exactly as the old generator last did.** The old generator's database records the exact settings of every sprite it rendered: moves, held items, states, framing and options. Two pieces are being built:
   - the platform now reads those settings once, along with the models and animation clips each sprite used (done for Airborne Ranger and Sidefighter)
