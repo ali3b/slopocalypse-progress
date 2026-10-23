@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 14:25 (Hanoi)*
+*Last updated: 2026-10-23 14:50 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -58,6 +58,8 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **14:50.** Work now runs in three parallel streams: the animation templates (me), 4dstunts' procedural track, terrain and skydome pieces (a second agent) and Off Road's last gaps (a third agent). The old generator's procedural animation library, about 60 templates (character moves, vehicle motions, effects, prop motions), is ported and built into the platform's renderer. Airborne Ranger is now rebuilding with it: the Ranger's crawl, prone, throw and kneel moves, the vehicles' drive and fire, and real explosion, smoke and fire effects instead of stand-ins.
 
 - **14:25.** **Decision: finish full parity with the old generator, then move on for good.** There are about 10 groups of remaining gaps across the four games (checklist above). Most come from one old library, the procedural animation templates, which will be ported whole into the platform's renderer next. The decision record (ADR-0025) now covers that, plus the old sprite options and geometry generators.
 
