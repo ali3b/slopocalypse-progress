@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 14:05 (Hanoi)*
+*Last updated: 2026-10-23 14:25 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -20,6 +20,22 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 | M4 Unreal and public channels | ⏳ | |
 | M5 SlopEngine MVP | ⏳ | |
 | M6 SlopStudio MVP | 🚧 Started | Level tool in `slop-studio`: builds the games' maps from their existing level scripts (ADR-0025) |
+
+## Retiring the old generator: parity checklist
+
+Goal: everything the four games got from the old generator (ssg) is built by the platform, so it is never needed again.
+
+- [x] Airborne Ranger maps (12 missions) built by the new level tool
+- [x] Tilesets identical to the old ones (variants, junction tiles, textures)
+- [x] Prop collision outlines, facings, turret sweep, walk and run speeds
+- [ ] Procedural animation templates. Character: throw, shoulder-fire, kneel, prone, crawl. Vehicle: drive, fire, propeller. Effects: explosion, smoke, fire, impact, fireball and others
+- [ ] Items held only in some clips (grenade, rocket launcher, bomb, camera, knife)
+- [ ] Destroyed states that swap to a separate wreck model; destroy-transition timing
+- [ ] Sprite options: uniform, split, shadow, effects layer, mirror, still, portrait, low three-quarter view, scale, clip length
+- [ ] Clip trimming, labels and timing suffixes (Sidefighter)
+- [ ] 4dstunts procedural geometry: 28 track pieces, 16 terrains, 5 skydomes, 1 composite; poses; decals
+- [ ] Off Road: truck lift kit (attach), fit
+- [ ] Final sweep: every game's import report fully mapped and its own checks passing, then retire ssg
 
 ## M0 checklist
 
@@ -42,6 +58,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **14:25.** **Decision: finish full parity with the old generator, then move on for good.** There are about 10 groups of remaining gaps across the four games (checklist above). Most come from one old library, the procedural animation templates, which will be ported whole into the platform's renderer next. The decision record (ADR-0025) now covers that, plus the old sprite options and geometry generators.
 
 - **14:05.** **Sidefighter re-checked on the updated pipeline and still passes:** 31/31 packages, and its own load check runs full matches with no failures. Monty is no longer part of the migration, since its sprites come from another source. Its tileset was checked first and is pixel-identical to the old one. Small fix: tileset files now use the old generator's naming exactly. The games being migrated are Off Road, 4dstunts, Sidefighter and Airborne Ranger.
 
