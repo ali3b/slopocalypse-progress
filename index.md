@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 09:23 (Hanoi)*
+*Last updated: 2026-10-23 12:35 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -16,10 +16,10 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 | M0 Bootstrap | ✅ Done | Contracts repo, platform skeleton, CI and guards, host preparation |
 | M1 Walking skeleton + tech spikes | 🚧 In progress | Gateway, policy, intake, catalog, orchestrator ✅; Blender spike S2 ✅; renderer spike S1 ✅ (golden parity pending) |
 | **M2 Vertical slice** | ✅ Acceptance test passing | Rig → animation → sprites ✅; Godot + SlopEngine packages with real import tests ✅; publication + delivery ✅; license-free end-to-end test ✅ |
-| **M3 Breadth, web targets, migration, Unity** | 🚧 Mostly done | **All five existing games pass their own load checks on platform-built assets** (Off Road 49/49, Monty 17/17, Sidefighter 29 sprites, Airborne Ranger: every sprite except the prisoner (not on this machine), 4dstunts 47 pack models). Supporting work: one-command migration (`migrate-game`); Phaser, web glTF and both legacy formats; tilesets; animated props; effects; destroyed states; fighting-game hit data; character clips and crowd poses; paint variants; texture budgets; levels of detail. **Open:** Airborne Ranger maps, 4dstunts procedural track pieces, and Unity (needs a licence) |
+| **M3 Breadth, web targets, migration, Unity** | 🚧 Mostly done | **All five existing games pass their own load checks on platform-built assets** (Off Road 49/49, Monty 17/17, Sidefighter 29 sprites, Airborne Ranger: every sprite except the prisoner (not on this machine), 4dstunts 47 pack models). Supporting work: one-command migration (`migrate-game`); Phaser, web glTF and both legacy formats; tilesets; animated props; effects; destroyed states; fighting-game hit data; character clips and crowd poses; paint variants; texture budgets; levels of detail. **Airborne Ranger maps** now build on the new stack (see the log). **Open:** walk and run speeds for in-place animation clips (being fixed), Airborne Ranger's prone and crawl moves, 4dstunts procedural track pieces, and Unity (needs a licence) |
 | M4 Unreal and public channels | ⏳ | |
 | M5 SlopEngine MVP | ⏳ | |
-| M6 SlopStudio MVP | ⏳ | |
+| M6 SlopStudio MVP | 🚧 Started | Level tool in `slop-studio`: builds the games' maps from their existing level scripts (ADR-0025) |
 
 ## M0 checklist
 
@@ -42,6 +42,15 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **12:35.** **Airborne Ranger's 12 missions now build on the new stack**, outside the old generator. A new level tool (`slop-studio`, a private repo) replays each mission's existing level script against the platform-built sprites and tilesets.
+  - **Engine check:** fed the old assets, it rebuilds all 12 missions byte-identical to the old exports.
+  - **Built against the platform's own assets:** terrain, collision, zones and every object's position, sprite, facing and state match the old maps. Only collision outlines differ slightly.
+  - **Game checks:** the game's load check passes, and its route check finds every route with no minefields on them. Route lengths match the old figures to within a metre or two.
+  - **Tilesets:** the platform now builds them the way the old generator did (random variants, three- and four-terrain junction tiles, textures, tints). All four of Airborne Ranger's tilesets match the old ones tile for tile.
+  - **Sprites:** the searchlight's sweep, ssg's one-facing rule for animated props, and the old collision outlines (rock, fern) are fixed.
+  - **Decision recorded:** ADR-0025 (accepted). The map and tileset code was ported from the old generator so that results come out identical.
+  - **Defect found, being fixed next:** walk and run speeds are wrong for animation clips that run in place. The Ranger's run speed comes out as 0.001 m/s instead of 2.81. The game moves characters at these speeds, and its load check doesn't test movement, so the earlier "passes" result missed it.
 
 - **09:23.** **Every model and sprite the games need from your packs now builds.** Characters that Synty ships inside combined files (the Sidefighter boss, the Airborne Ranger prisoner, the 4dstunts drivers) are picked out by name. Five more packs were added. Sidefighter has 31/31, Airborne Ranger 75/75 and 4dstunts 69/69, and all three games' own checks pass. Still open: Airborne Ranger's maps and 4dstunts' procedural track pieces.
 
