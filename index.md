@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 13:05 (Hanoi)*
+*Last updated: 2026-10-23 14:05 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **14:05.** **Sidefighter re-checked on the updated pipeline and still passes:** 31/31 packages, and its own load check runs full matches with no failures. Monty is no longer part of the migration, since its sprites come from another source. Its tileset was checked first and is pixel-identical to the old one. Small fix: tileset files now use the old generator's naming exactly. The games being migrated are Off Road, 4dstunts, Sidefighter and Airborne Ranger.
 
 - **13:05.** **Walk and run speeds fixed.** The platform now measures how fast a character really moves in an animation, the same way the old generator did: from the planted feet. Every Airborne Ranger character's speed matches the old build to within 0.01 m/s (the Ranger walks at 1.22 m/s and runs at 2.81). On the all-platform build (sprites, tilesets and maps), the game's load check and route check both pass, and mission times match the old build exactly. Only the crawl speed is still missing, because the crawl animation isn't found yet. Next: re-check Monty and Sidefighter on the updated pipeline.
 
