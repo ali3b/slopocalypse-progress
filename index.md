@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 21:30 (Hanoi)*
+*Last updated: 2026-10-23 21:50 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -31,7 +31,8 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Procedural animation templates. Character: throw, shoulder-fire, kneel, prone, crawl. Vehicle: drive, fire, propeller. Effects: smoke, fire, impact and others (explosion: one check failing)
 - [x] Moveset and declaration rules, held items, states, view options: the old renderer ported, each sprite rendered from its recorded settings
 - [x] Airborne Ranger and Sidefighter: held-item points, framing, mirroring, effects (differences now traced to the old generator's later changes)
-- [ ] Model preparation: texture choice on a few models, one unit-scale case, two characters' poses
+- [x] Model preparation: textures, unit scale, retarget poses
+- [ ] Final check: all four games on the merged code, every remaining difference explained
 - [ ] Items held only in some clips (grenade, rocket launcher, bomb, camera, knife)
 - [ ] Destroyed states that swap to a separate wreck model; destroy-transition timing
 - [ ] Sprite options: uniform, split, shadow, effects layer, mirror, still, portrait, low three-quarter view, scale, clip length
@@ -62,6 +63,14 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **21:50.** **Model preparation now matches the old generator.** Textures are chosen as before (its material code ported), sizes match for all 62 War, City and Dungeon models the games use (the grenade is 0.1 m again), and animation retargeting is bit-identical to its output. Results:
+  - Airborne Ranger: 37 of 73 sprite sheets are identical to the game's current files, up from 26. The rest trace to the old generator's own later changes.
+  - 4dstunts: 108 of 119 texture sets are identical, up from 79.
+  - All four games pass their own checks.
+  - A missing world-scale header in the platform's manifest broke Airborne Ranger's mission scene in an all-platform build; fixed.
+
+  New migrations now use the recorded settings by default. The final check of all four games on the merged code is running.
 
 - **21:30.** **First Studio video rendered end to end: "Ranger: the drop"** (17.5 s, 3 shots, 720p, subtitles). The script, cast, scene and timeline drove a new Blender scene adapter in the sandboxed Blender worker. Every asset came from the platform, built and published, and fetched by version id. Each video has a record of the exact asset versions and settings used. Rendering took 46 minutes on the busy machine (about 28 without the other jobs). It's a rough first cut:
   - no throw or turn animations exist yet, so the throw is a posed arm and the guard's turn slides;
