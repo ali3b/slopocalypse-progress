@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 19:10 (Hanoi)*
+*Last updated: 2026-10-23 20:00 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -30,8 +30,8 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Prop collision outlines, facings, turret sweep, walk and run speeds
 - [x] Procedural animation templates. Character: throw, shoulder-fire, kneel, prone, crawl. Vehicle: drive, fire, propeller. Effects: smoke, fire, impact and others (explosion: one check failing)
 - [x] Moveset and declaration rules, held items, states, view options: the old renderer ported, each sprite rendered from its recorded settings
-- [ ] Airborne Ranger: last sprite differences (tank muzzle, held-item points, two props' framing)
-- [ ] Sidefighter: mirrored W frames, effect looks
+- [x] Airborne Ranger and Sidefighter: held-item points, framing, mirroring, effects (differences now traced to the old generator's later changes)
+- [ ] Model preparation: texture choice on a few models, one unit-scale case, two characters' poses
 - [ ] Items held only in some clips (grenade, rocket launcher, bomb, camera, knife)
 - [ ] Destroyed states that swap to a separate wreck model; destroy-transition timing
 - [ ] Sprite options: uniform, split, shadow, effects layer, mirror, still, portrait, low three-quarter view, scale, clip length
@@ -62,6 +62,18 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **20:00.** **Both 2D games pass their own checks on all-platform builds through the ported renderer.** Airborne Ranger passes the load check and all 12 mission routes; Sidefighter passes all scenes, including the stage scene that used to fail. Fixed along the way:
+  - held-item points (bone order);
+  - two props' framing (units);
+  - characters drawn about 18 % too dark (material settings);
+  - mirrored left-facing frames;
+  - the old generator's animation key names.
+
+  Most remaining differences from the games' old files turn out to be the old generator's own later changes. Rendering with its code as it stood at each export's date reproduces 29 of 30 Airborne Ranger sheets and all 16 tested Sidefighter effects exactly. What's left is in model preparation and is being fixed:
+  - a few models get a different texture than before (snow props, trucks, tank tracks, a tent);
+  - one grenade comes out 100 times too large;
+  - two characters' poses differ slightly.
 
 - **19:10.** **Off Road re-checked on the latest code: unchanged.** 44 of 49 models match the old exports within 1 cm, and all five load-check scenes pass.
 
