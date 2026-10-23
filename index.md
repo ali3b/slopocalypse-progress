@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 14:50 (Hanoi)*
+*Last updated: 2026-10-23 15:35 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -28,7 +28,8 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Airborne Ranger maps (12 missions) built by the new level tool
 - [x] Tilesets identical to the old ones (variants, junction tiles, textures)
 - [x] Prop collision outlines, facings, turret sweep, walk and run speeds
-- [ ] Procedural animation templates. Character: throw, shoulder-fire, kneel, prone, crawl. Vehicle: drive, fire, propeller. Effects: explosion, smoke, fire, impact, fireball and others
+- [x] Procedural animation templates. Character: throw, shoulder-fire, kneel, prone, crawl. Vehicle: drive, fire, propeller. Effects: smoke, fire, impact and others (explosion: one check failing)
+- [ ] Moveset and declaration rules (clip names, preferred clips, fallbacks, carry poses, states, stills, trims)
 - [ ] Items held only in some clips (grenade, rocket launcher, bomb, camera, knife)
 - [ ] Destroyed states that swap to a separate wreck model; destroy-transition timing
 - [ ] Sprite options: uniform, split, shadow, effects layer, mirror, still, portrait, low three-quarter view, scale, clip length
@@ -58,6 +59,8 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **15:35.** **The old generator's animation library now runs inside the platform.** Airborne Ranger builds all 75 sprites with it, and the game's load and route checks pass. The Ranger's grenade throw, rocket launcher, bomb and medkit placing, camera shot, prone, prone-shoot and crawl now come from the same procedural moves as before. Their timing (release and shot frames) and the crawl speed match the old build exactly. The searchlight sweep, radar spin, tank drive and fire, smoke and fire effects use the old motions too. Still open: the explosion effect fails one platform check, and some clip names (the MG gunner's crouch moves) need the old generator's moveset rules. Those rules are being ported next.
 
 - **14:50.** Work now runs in three parallel streams: the animation templates (me), 4dstunts' procedural track, terrain and skydome pieces (a second agent) and Off Road's last gaps (a third agent). The old generator's procedural animation library, about 60 templates (character moves, vehicle motions, effects, prop motions), is ported and built into the platform's renderer. Airborne Ranger is now rebuilding with it: the Ranger's crawl, prone, throw and kneel moves, the vehicles' drive and fire, and real explosion, smoke and fire effects instead of stand-ins.
 
