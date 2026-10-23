@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 21:50 (Hanoi)*
+*Last updated: 2026-10-24 06:30 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -32,7 +32,8 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Moveset and declaration rules, held items, states, view options: the old renderer ported, each sprite rendered from its recorded settings
 - [x] Airborne Ranger and Sidefighter: held-item points, framing, mirroring, effects (differences now traced to the old generator's later changes)
 - [x] Model preparation: textures, unit scale, retarget poses
-- [ ] Final check: all four games on the merged code, every remaining difference explained
+- [x] Final check: all four games on the merged code, every remaining difference explained
+- [ ] Last 3D gaps: dashboard needles, nature materials, simplification, seats, pack registration
 - [ ] Items held only in some clips (grenade, rocket launcher, bomb, camera, knife)
 - [ ] Destroyed states that swap to a separate wreck model; destroy-transition timing
 - [ ] Sprite options: uniform, split, shadow, effects layer, mirror, still, portrait, low three-quarter view, scale, clip length
@@ -63,6 +64,17 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **06:30 (24 Oct).** **Final check of all four games on the merged code: every game passes its own checks, built entirely by the platform.**
+
+| Game | Built | The game's own checks | Matching the old files | Remaining real gaps |
+|---|---|---|---|---|
+| Airborne Ranger | 75/75 | 16 load-check scenes + routes for all 12 missions | 39 of 73 sprite sheets identical; the rest are the old generator's own later changes | none |
+| Sidefighter | 31/31 | 5 scenes | 16 of 31 identical to the old generator's latest renders; the rest are its later effect changes and a clip the game asks for | none |
+| Off Road | 49/49 | 6 scenes | 49/49 textures; 45/49 model files | crowd triangle counts; stand seats (unused by the game) |
+| 4dstunts | 119/119 | garage, race, props, 11 tracks, piece fit, smoothness | 108/119 textures; 100/119 model files | in-car dashboard needles; tree and cactus materials; decimated tree bounds; one pack not registered |
+
+  The last five 3D gaps (dashboard, nature materials, simplification, seats, pack registration) are being closed now. After that, the old generator is retired.
 
 - **21:50.** **Model preparation now matches the old generator.** Textures are chosen as before (its material code ported), sizes match for all 62 War, City and Dungeon models the games use (the grenade is 0.1 m again), and animation retargeting is bit-identical to its output. Results:
   - Airborne Ranger: 37 of 73 sprite sheets are identical to the game's current files, up from 26. The rest trace to the old generator's own later changes.
