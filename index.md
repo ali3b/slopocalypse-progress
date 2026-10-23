@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 15:35 (Hanoi)*
+*Last updated: 2026-10-23 16:20 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -59,6 +59,12 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **16:20.** **New approach for the last sprite gaps: render each sprite exactly as the old generator last did.** The old generator's database records the exact settings of every sprite it rendered: moves, held items, states, framing and options. Two pieces are being built:
+  - the platform now reads those settings once, along with the models and animation clips each sprite used (done for Airborne Ranger and Sidefighter)
+  - a third agent is porting the old renderer itself into the platform, as a second render mode
+
+  When both land, held items, carry poses, states with wreck models, stills, split sheets and the remaining view options come out as before, without rebuilding each feature by hand.
 
 - **15:35.** **The old generator's animation library now runs inside the platform.** Airborne Ranger builds all 75 sprites with it, and the game's load and route checks pass. The Ranger's grenade throw, rocket launcher, bomb and medkit placing, camera shot, prone, prone-shoot and crawl now come from the same procedural moves as before. Their timing (release and shot frames) and the crawl speed match the old build exactly. The searchlight sweep, radar spin, tank drive and fire, smoke and fire effects use the old motions too. Still open: the explosion effect fails one platform check, and some clip names (the MG gunner's crouch moves) need the old generator's moveset rules. Those rules are being ported next.
 
