@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 12:35 (Hanoi)*
+*Last updated: 2026-10-23 13:05 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -16,7 +16,7 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 | M0 Bootstrap | ✅ Done | Contracts repo, platform skeleton, CI and guards, host preparation |
 | M1 Walking skeleton + tech spikes | 🚧 In progress | Gateway, policy, intake, catalog, orchestrator ✅; Blender spike S2 ✅; renderer spike S1 ✅ (golden parity pending) |
 | **M2 Vertical slice** | ✅ Acceptance test passing | Rig → animation → sprites ✅; Godot + SlopEngine packages with real import tests ✅; publication + delivery ✅; license-free end-to-end test ✅ |
-| **M3 Breadth, web targets, migration, Unity** | 🚧 Mostly done | **All five existing games pass their own load checks on platform-built assets** (Off Road 49/49, Monty 17/17, Sidefighter 29 sprites, Airborne Ranger: every sprite except the prisoner (not on this machine), 4dstunts 47 pack models). Supporting work: one-command migration (`migrate-game`); Phaser, web glTF and both legacy formats; tilesets; animated props; effects; destroyed states; fighting-game hit data; character clips and crowd poses; paint variants; texture budgets; levels of detail. **Airborne Ranger maps** now build on the new stack (see the log). **Open:** walk and run speeds for in-place animation clips (being fixed), Airborne Ranger's prone and crawl moves, 4dstunts procedural track pieces, and Unity (needs a licence) |
+| **M3 Breadth, web targets, migration, Unity** | 🚧 Mostly done | **All five existing games pass their own load checks on platform-built assets** (Off Road 49/49, Monty 17/17, Sidefighter 29 sprites, Airborne Ranger: every sprite except the prisoner (not on this machine), 4dstunts 47 pack models). Supporting work: one-command migration (`migrate-game`); Phaser, web glTF and both legacy formats; tilesets; animated props; effects; destroyed states; fighting-game hit data; character clips and crowd poses; paint variants; texture budgets; levels of detail. **Airborne Ranger maps** now build on the new stack (see the log). **Open:** Airborne Ranger's prone and crawl moves, 4dstunts procedural track pieces, and Unity (needs a licence) |
 | M4 Unreal and public channels | ⏳ | |
 | M5 SlopEngine MVP | ⏳ | |
 | M6 SlopStudio MVP | 🚧 Started | Level tool in `slop-studio`: builds the games' maps from their existing level scripts (ADR-0025) |
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **13:05.** **Walk and run speeds fixed.** The platform now measures how fast a character really moves in an animation, the same way the old generator did: from the planted feet. Every Airborne Ranger character's speed matches the old build to within 0.01 m/s (the Ranger walks at 1.22 m/s and runs at 2.81). On the all-platform build (sprites, tilesets and maps), the game's load check and route check both pass, and mission times match the old build exactly. Only the crawl speed is still missing, because the crawl animation isn't found yet. Next: re-check Monty and Sidefighter on the updated pipeline.
 
 - **12:35.** **Airborne Ranger's 12 missions now build on the new stack**, outside the old generator. A new level tool (`slop-studio`, a private repo) replays each mission's existing level script against the platform-built sprites and tilesets.
   - **Engine check:** fed the old assets, it rebuilds all 12 missions byte-identical to the old exports.
