@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 06:44 (Hanoi)*
+*Last updated: 2026-10-23 09:23 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -42,6 +42,8 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **09:23.** **Every model and sprite the games need from your packs now builds.** Characters that Synty ships inside combined files (the Sidefighter boss, the Airborne Ranger prisoner, the 4dstunts drivers) are picked out by name. Five more packs were added. Sidefighter has 31/31, Airborne Ranger 75/75 and 4dstunts 69/69, and all three games' own checks pass. Still open: Airborne Ranger's maps and 4dstunts' procedural track pieces.
 
 - **06:44.** Airborne Ranger's hostage now sits, using a seated clip from your Mixamo library, and its animation list matches the old export exactly. Final re-check: 74 of 74 packages pass and the game's own load check passes. End of the overnight run.
 
