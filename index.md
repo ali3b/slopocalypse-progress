@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 17:45 (Hanoi)*
+*Last updated: 2026-10-23 18:30 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -29,13 +29,14 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Tilesets identical to the old ones (variants, junction tiles, textures)
 - [x] Prop collision outlines, facings, turret sweep, walk and run speeds
 - [x] Procedural animation templates. Character: throw, shoulder-fire, kneel, prone, crawl. Vehicle: drive, fire, propeller. Effects: smoke, fire, impact and others (explosion: one check failing)
-- [ ] Moveset and declaration rules (clip names, preferred clips, fallbacks, carry poses, states, stills, trims)
+- [x] Moveset and declaration rules, held items, states, view options: the old renderer ported, each sprite rendered from its recorded settings
+- [ ] Airborne Ranger: last sprite differences (tank muzzle, held-item points, two props' framing)
 - [ ] Items held only in some clips (grenade, rocket launcher, bomb, camera, knife)
 - [ ] Destroyed states that swap to a separate wreck model; destroy-transition timing
 - [ ] Sprite options: uniform, split, shadow, effects layer, mirror, still, portrait, low three-quarter view, scale, clip length
 - [ ] Clip trimming, labels and timing suffixes (Sidefighter)
 - [x] 4dstunts procedural geometry: 28 track pieces, 16 terrains, 5 skydomes, 1 composite
-- [ ] 4dstunts: posed drivers (combined character file), decal-free paint (one car)
+- [x] 4dstunts: posed drivers, decal-free paint
 - [x] Off Road: lift kit, fit, glass, alpha, animated characters, crowd poses, paint
 - [ ] Final sweep: every game's import report fully mapped and its own checks passing, then retire ssg
 
@@ -60,6 +61,10 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **18:30.** **Airborne Ranger runs entirely on the platform through the ported old renderer.** That covers sprites, tilesets and maps, with nothing from the old generator's outputs. All 76 packages build and the game's load and route checks pass, with mission times identical to the old build. Compared with the old exports, most sprites match exactly: frame sizes, pivots and the median socket position. Differences are being run down for the tank's muzzle point, held-item points on a few frames and two props' framing. Some come from old exports made before the generator's latest code; the explosion keeps its current orange look, by the owner's decision.
+
+  **4dstunts is complete:** all 119 models now match the old build, including the 6 posed drivers and the decal-free car. Two more fixes on the way: the War pack's background mountains had been built at 1/100th size (fixed with the old generator's per-pack scale rule), and a platform self-test that was failing passes again. Sidefighter and Off Road are being re-checked on the latest code.
 
 - **17:45.** **Off Road is now faithful to the old build, and the comparison showed the earlier "pass" was not.** Compared against the old exports, the earlier platform build had:
   - no animated characters: every driver, fan and flagman clip was a 0.03 s two-key take;
