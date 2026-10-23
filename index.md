@@ -4,7 +4,7 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-23 20:20 (Hanoi)*
+*Last updated: 2026-10-23 21:30 (Hanoi)*
 
 Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
@@ -19,7 +19,7 @@ Public status page for the Slopocalypse build. The work itself happens in privat
 | **M3 Breadth, web targets, migration, Unity** | 🚧 Mostly done | **All five existing games pass their own load checks on platform-built assets** (Off Road 49/49, Monty 17/17, Sidefighter 29 sprites, Airborne Ranger: every sprite except the prisoner (not on this machine), 4dstunts 47 pack models). Supporting work: one-command migration (`migrate-game`); Phaser, web glTF and both legacy formats; tilesets; animated props; effects; destroyed states; fighting-game hit data; character clips and crowd poses; paint variants; texture budgets; levels of detail. **Airborne Ranger maps** now build on the new stack (see the log). **Open:** Airborne Ranger's prone and crawl moves, 4dstunts procedural track pieces, and Unity (needs a licence) |
 | M4 Unreal and public channels | ⏳ | |
 | M5 SlopEngine MVP | ⏳ | |
-| M6 SlopStudio MVP | 🚧 Started | Level tool in `slop-studio`: builds the games' maps from their existing level scripts (ADR-0025). First video slice in progress: script → casting from platform-built assets → Blender render → MP4 |
+| M6 SlopStudio MVP | 🚧 Started | Level tool in `slop-studio`: builds the games' maps from their existing level scripts (ADR-0025). First video rendered ("Ranger: the drop", internal): script → casting → Blender render → MP4 |
 
 ## Retiring the old generator: parity checklist
 
@@ -62,6 +62,13 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **21:30.** **First Studio video rendered end to end: "Ranger: the drop"** (17.5 s, 3 shots, 720p, subtitles). The script, cast, scene and timeline drove a new Blender scene adapter in the sandboxed Blender worker. Every asset came from the platform, built and published, and fetched by version id. Each video has a record of the exact asset versions and settings used. Rendering took 46 minutes on the busy machine (about 28 without the other jobs). It's a rough first cut:
+  - no throw or turn animations exist yet, so the throw is a posed arm and the guard's turn slides;
+  - the explosion is a simple flash;
+  - no voice yet.
+
+  The video stays internal (it uses Synty assets). Voice will be added locally under the new speech decision (ADR-0026).
 
 - **20:20.** **Studio's first video slice has started, ahead of the original order.** The owner wants a short video soon to prove the idea. The first one is "Ranger: the drop": about 15–20 seconds, 3 shots, subtitles, no voice. It goes through the designed path end to end:
   - a script in the screenplay format;
