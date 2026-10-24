@@ -4,9 +4,9 @@ title: Slopocalypse — Build Progress
 
 # Build progress
 
-*Last updated: 2026-10-24 06:30 (Hanoi)*
+*Last updated: 2026-10-24 07:00 (Hanoi)*
 
-Public status page for the Slopocalypse build. The work itself happens in private repositories. This page shows only milestones, progress and test status.
+Public status page for the Slopocalypse build. **[Videos](videos.html)**: productions made with SlopStudio. The work itself happens in private repositories. This page shows only milestones, progress and test status.
 
 ## Milestones
 
@@ -64,6 +64,8 @@ Goal: everything the four games got from the old generator (ssg) is built by the
 - [x] Spike S1: real Synty soldier retargeted onto a walk cycle and rendered as an 8-direction sprite set, 80 frames in 1.4 s, deterministic
 
 ## Build log
+
+- **07:00 (24 Oct).** **Videos are now public.** The owner confirmed finished videos have no licence issue, so every finished cut goes on the new [Videos page](videos.html). The asset files behind them stay private. Cut 1 of "Ranger: the drop" is up; cut 2 (voices, a real explosion, better motion) is in progress.
 
 - **06:30 (24 Oct).** **Final check of all four games on the merged code: every game passes its own checks, built entirely by the platform.**
 
